@@ -39,6 +39,22 @@ android {
         }
     }
 
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            // 输出apk名称
+            if (variant.buildType.name.equals('release')) {
+                def fileName = defaultConfig.applicationId + "_v" + defaultConfig.versionName + ".apk"
+                outputFileName = fileName
+            }
+        }
+    }
+
+
+    lintOptions {
+        disable 'GoogleAppIndexingWarning'
+        baseline file("lint-baseline.xml")
+    }
+
 }
 
 dependencies {
