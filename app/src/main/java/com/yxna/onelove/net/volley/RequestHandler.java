@@ -40,15 +40,15 @@ public class RequestHandler {
             Context context, final int method, final HashMap<String, String> params,
             final Map<String, String> header, String interfaceMethod, IVolleyResponse volleyResponse, boolean isShowLoadingDialog) {
         if (isShowLoadingDialog) {
-            addRequest(context, method, params, header, new DefaultDialogRequestListener(context)
+            addRequest(method, params, header, new DefaultDialogRequestListener(context)
                     , interfaceMethod, volleyResponse);
         } else {
-            addRequest(context, method, params, header, new DefaultRequestListener(), interfaceMethod, volleyResponse);
+            addRequest(method, params, header, new DefaultRequestListener(), interfaceMethod, volleyResponse);
         }
     }
 
 
-    private static void addRequest(Context context, int method, final HashMap<String, String> params, final Map<String, String> header,
+    private static void addRequest(int method, final HashMap<String, String> params, final Map<String, String> header,
                                    final NetWorkRequestListener listener, String interfaceMethod, IVolleyResponse volleyResponse) {
         listener.onPreRequest();
         StringRequest request = new StringRequest(method, InterfaceMethod.base_url + interfaceMethod, response -> {

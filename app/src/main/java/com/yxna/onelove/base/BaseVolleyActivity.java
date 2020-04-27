@@ -18,6 +18,7 @@ public abstract class BaseVolleyActivity extends BaseActivity {
 
     HashMap<String, String> header = new HashMap<>();
 
+
     public void doPost(HashMap<String, String> params, String api_name) {
         RequestHandler.addRequest(mActivity, Request.Method.POST, params, header,
                 api_name, new RequestHandler.IVolleyResponse() {
