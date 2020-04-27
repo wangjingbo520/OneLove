@@ -16,16 +16,16 @@ import java.util.Set;
  * @author wjb（H）
  * @date describe
  */
-public class SPUtils {
-    private static SimpleArrayMap<String, SPUtils> SP_UTILS_MAP = new SimpleArrayMap<>();
+public class SPUtil {
+    private static SimpleArrayMap<String, SPUtil> SP_UTILS_MAP = new SimpleArrayMap<>();
     private SharedPreferences sp;
 
     /**
      * 获取 SP 实例
      *
-     * @return {@link SPUtils}
+     * @return {@link SPUtil}
      */
-    public static SPUtils getInstance() {
+    public static SPUtil getInstance() {
         return getInstance("");
     }
 
@@ -33,21 +33,21 @@ public class SPUtils {
      * 获取 SP 实例
      *
      * @param spName sp 名
-     * @return {@link SPUtils}
+     * @return {@link SPUtil}
      */
-    public static SPUtils getInstance(String spName) {
+    public static SPUtil getInstance(String spName) {
         if (isSpace(spName)) {
             spName = "spUtils";
         }
-        SPUtils spUtils = SP_UTILS_MAP.get(spName);
-        if (spUtils == null) {
-            spUtils = new SPUtils(spName);
-            SP_UTILS_MAP.put(spName, spUtils);
+        SPUtil spUtil = SP_UTILS_MAP.get(spName);
+        if (spUtil == null) {
+            spUtil = new SPUtil(spName);
+            SP_UTILS_MAP.put(spName, spUtil);
         }
-        return spUtils;
+        return spUtil;
     }
 
-    private SPUtils(final String spName) {
+    private SPUtil(final String spName) {
         sp = MyApp.getInstance().getSharedPreferences(spName, Context.MODE_PRIVATE);
     }
 

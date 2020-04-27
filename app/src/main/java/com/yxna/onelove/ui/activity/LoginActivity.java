@@ -1,17 +1,20 @@
-package com.yxna.onelove;
-
-import android.os.Bundle;
+package com.yxna.onelove.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Bundle;
+
+import com.yxna.onelove.R;
 import com.yxna.onelove.base.BaseActivity;
+import com.yxna.onelove.base.BaseVolleyActivity;
+
 
 /**
  * @author Bobo
  * @date 2019/9/21
  * describe
  */
-public class SplashActivity extends BaseActivity {
+public class LoginActivity extends BaseVolleyActivity {
 
 
     @Override
@@ -24,8 +27,9 @@ public class SplashActivity extends BaseActivity {
 
     }
 
+
     @Override
     protected int getContentLayout() {
-        return R.layout.activity_splash;
+        return R.layout.activity_login;
     }
 }
