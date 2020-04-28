@@ -7,11 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.yxna.onelove.base.BaseActivity;
 
 /**
- * @author Bobo
- * @date 2019/9/21
+ * @author wjb
  * describe
  */
-public class SplashActivity extends BaseActivity {
+public class LaunchActivity extends BaseActivity {
 
 
     @Override

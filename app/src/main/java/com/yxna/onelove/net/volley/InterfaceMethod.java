@@ -1,8 +1,8 @@
 package com.yxna.onelove.net.volley;
 
 /**
- * @author wjb（H）
- * @date describe
+ * @author wjb
+ * describe
  */
 public class InterfaceMethod {
 

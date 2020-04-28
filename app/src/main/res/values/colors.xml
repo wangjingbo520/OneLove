@@ -10,7 +10,9 @@
     <color name="textColor3">#333333</color>
     <color name="textColor6">#666666</color>
     <color name="textColor9">#999999</color>
+
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
 
 
 </resources>

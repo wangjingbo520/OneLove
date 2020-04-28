@@ -14,7 +14,7 @@ import java.util.HashMap;
  * @author wjb（H）
  * @date describe
  */
-public abstract class BaseVolleyActivity extends BaseActivity {
+public abstract class BaseVRActivity extends BaseActivity {
 
     HashMap<String, String> header = new HashMap<>();
 

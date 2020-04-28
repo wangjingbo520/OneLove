@@ -3,8 +3,8 @@ package com.yxna.onelove;
 import android.app.Application;
 
 /**
- * @author wjb（H）
- * @date describe
+ * @author wjb
+ * describe
  */
 public class MyApp extends Application {
     public static MyApp myApp;

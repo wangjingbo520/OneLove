@@ -1,20 +1,16 @@
 package com.yxna.onelove.ui.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 import com.yxna.onelove.R;
-import com.yxna.onelove.base.BaseActivity;
-import com.yxna.onelove.base.BaseVolleyActivity;
+import com.yxna.onelove.base.BaseVRActivity;
 
 
 /**
- * @author Bobo
- * @date 2019/9/21
+ * @author wjb
  * describe
  */
-public class LoginActivity extends BaseVolleyActivity {
+public class LoginActivity extends BaseVRActivity {
 
 
     @Override

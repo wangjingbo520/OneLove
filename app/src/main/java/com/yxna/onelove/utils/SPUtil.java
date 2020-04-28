@@ -13,8 +13,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author wjb（H）
- * @date describe
+ * @author wjb
+ * describe
  */
 public class SPUtil {
     private static SimpleArrayMap<String, SPUtil> SP_UTILS_MAP = new SimpleArrayMap<>();

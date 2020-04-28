@@ -23,8 +23,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * @author Bobo
- * @date 2019/9/21
+ * @author wjb
  * describe
  */
 public class TabHomeActivity extends BaseActivity {

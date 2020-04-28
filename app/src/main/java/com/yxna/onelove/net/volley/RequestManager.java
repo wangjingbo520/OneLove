@@ -7,6 +7,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.Volley;
+import com.yxna.onelove.R;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,6 +17,7 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
+import java.util.Hashtable;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
@@ -23,7 +25,7 @@ import javax.net.ssl.TrustManagerFactory;
 
 
 /**
- * @author   wjb
+ * @author wjb
  * describe
  */
 public class RequestManager {
@@ -63,12 +65,11 @@ public class RequestManager {
 //                SSLSocketFactory sslSocketFactory = createSSLSocketFactory(context, res, password);
 //                socketFactoryMap.put(hosts[i], sslSocketFactory);
 //            }
-//            HurlStack stack = new SelfSignSslOkHttpStack(socketFactoryMap);
-//
-//            return stack;
+//            return new SelfSignSslOkHttpStack(socketFactoryMap);
 //        } catch (Exception e) {
-        return null;
+//            e.printStackTrace();
 //        }
+        return null;
     }
 
     private static SSLSocketFactory createSSLSocketFactory(Context context, int res, String password)
