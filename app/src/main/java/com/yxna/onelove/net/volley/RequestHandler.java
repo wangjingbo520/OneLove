@@ -1,24 +1,18 @@
 package com.yxna.onelove.net.volley;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.ParseError;
-import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.google.gson.Gson;
 import com.yxna.onelove.MyApp;
-import com.yxna.onelove.base.BaseVolleyActivity;
 import com.yxna.onelove.utils.ToastUtil;
-import com.yxna.onelove.views.LoadingDialog;
+import com.yxna.onelove.views.dialog.LoadingDialog;
 
 import java.util.HashMap;
 import java.util.Map;

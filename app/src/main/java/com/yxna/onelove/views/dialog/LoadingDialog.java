@@ -1,10 +1,11 @@
-package com.yxna.onelove.views;
+package com.yxna.onelove.views.dialog;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import com.yxna.onelove.R;
+import com.yxna.onelove.views.dialog.BaseDialog;
 
 
 /**

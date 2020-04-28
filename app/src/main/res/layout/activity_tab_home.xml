@@ -6,7 +6,7 @@
     android:orientation="vertical"
     tools:context=".TabHomeActivity">
 
-    <com.yxna.onelove.views.TitleView
+    <com.yxna.onelove.views.customviews.TitleView
         android:id="@+id/titleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

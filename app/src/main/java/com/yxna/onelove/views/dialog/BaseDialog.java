@@ -1,4 +1,4 @@
-package com.yxna.onelove.views;
+package com.yxna.onelove.views.dialog;
 
 import android.app.Dialog;
 import android.content.Context;

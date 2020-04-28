@@ -13,8 +13,8 @@ import com.yxna.onelove.ui.fragment.AskFragment;
 import com.yxna.onelove.ui.fragment.FindFragment;
 import com.yxna.onelove.ui.fragment.HomeFragment;
 import com.yxna.onelove.ui.fragment.MyFragment;
-import com.yxna.onelove.views.TabView;
-import com.yxna.onelove.views.TitleView;
+import com.yxna.onelove.views.customviews.TabView;
+import com.yxna.onelove.views.customviews.TitleView;
 
 import java.util.ArrayList;
 import java.util.List;
