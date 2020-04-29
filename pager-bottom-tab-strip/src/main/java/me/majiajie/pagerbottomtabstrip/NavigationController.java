@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.ViewPager;
+
 import me.majiajie.pagerbottomtabstrip.internal.Utils;
 import me.majiajie.pagerbottomtabstrip.item.BaseTabItem;
 import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectedListener;

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.core.content.ContextCompat;
+
 import me.majiajie.pagerbottomtabstrip.R;
 import me.majiajie.pagerbottomtabstrip.internal.RoundMessageView;
 

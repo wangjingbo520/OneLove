@@ -10,11 +10,12 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import java.util.Locale;
-
 import androidx.annotation.ColorInt;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
+
+import java.util.Locale;
+
 import me.majiajie.pagerbottomtabstrip.R;
 
 
