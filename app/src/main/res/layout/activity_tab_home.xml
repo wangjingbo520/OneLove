@@ -11,106 +11,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <FrameLayout
-        android:id="@+id/tab_content"
+    <com.yxna.onelove.views.customviews.NoAnimationViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <LinearLayout
+    <com.yxna.onelove.views.customviews.bottomview.PageNavigationView
+        android:id="@+id/act_main_bottom_view"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:id="@+id/llHome"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/ivHome"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@mipmap/ic_launcher" />
-
-            <TextView
-                android:id="@+id/tvHome"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="首页" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llAsk"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/ivAsk"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@mipmap/ic_launcher" />
-
-            <TextView
-                android:id="@+id/tvAsk"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="问答" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llFind"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/ivFind"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@mipmap/ic_launcher" />
-
-            <TextView
-                android:id="@+id/tvFind"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="发现" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llMy"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/ivMy"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@mipmap/ic_launcher" />
-
-            <TextView
-                android:id="@+id/tvMy"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="我的" />
-        </LinearLayout>
-
-    </LinearLayout>
-
+        android:layout_height="55dp"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:elevation="@dimen/textSize_15"
+        android:visibility="visible"
+        tools:ignore="UnusedAttribute" />
 
 </LinearLayout>

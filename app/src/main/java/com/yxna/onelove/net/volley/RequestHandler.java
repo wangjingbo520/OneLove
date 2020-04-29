@@ -83,7 +83,7 @@ public class RequestHandler {
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
         ));
 
-        RequestManager.getInstance(MyApp.getInstance()).getRequestQueue().add(request);
+        RequestManager.getInstance(MyApp.getInstance(), RequestManager.Type.HTTP).getRequestQueue().add(request);
     }
 
 

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.gson.Gson;
 import com.yxna.onelove.utils.ToastUtil;
 
 import butterknife.ButterKnife;
@@ -17,7 +16,6 @@ import butterknife.ButterKnife;
  */
 @SuppressLint("Registered")
 public abstract class BaseActivity extends AppCompatActivity {
-    public Gson gson;
     public AppCompatActivity mActivity;
 
     @Override
@@ -26,7 +24,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(getContentLayout());
         ButterKnife.bind(this);
         mActivity = this;
-        gson = new Gson();
         initView(savedInstanceState);
         initData();
     }

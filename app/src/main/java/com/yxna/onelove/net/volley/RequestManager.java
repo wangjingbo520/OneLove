@@ -3,25 +3,26 @@ package com.yxna.onelove.net.volley;
 import android.content.Context;
 import android.text.TextUtils;
 
+import com.android.volley.Cache;
+import com.android.volley.Network;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.BasicNetwork;
+import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.Volley;
-import com.yxna.onelove.R;
+import com.yxna.onelove.MyApp;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.KeyManagementException;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.security.cert.CertificateException;
-import java.util.Hashtable;
+import java.security.cert.X509Certificate;
 
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 
 /**
@@ -34,64 +35,87 @@ public class RequestManager {
 
     }
 
+    public enum Type {
+        HTTP,
+        HTTPS_DEFALT,
+        HTTPS_SELF_CERTIFIED
+    }
+
     private static RequestManager instance;
 
     public RequestQueue mRequestQueue;
 
-    public RequestManager(Context context) {
-        mRequestQueue = newRequestQueue(context);
+    private RequestQueue mRequestQueueWithSelfCertifiedSsl;
+
+    private RequestQueue mRequestQueueWithDefaultSsl;
+
+    public RequestManager(Context context, Type type) {
+        mRequestQueue = newRequestQueue(context, type);
     }
 
-    public static RequestManager getInstance(Context context) {
+    public static RequestManager getInstance(Context context, Type type) {
         if (instance == null) {
-            instance = new RequestManager(context);
+            instance = new RequestManager(context, type);
         }
         return instance;
     }
 
 
-    public static HurlStack getSelfSignSslOkHttpStack(Context context) {
+    private RequestQueue newRequestQueue(Context context, Type type) {
+        if (type == Type.HTTP) {
+            mRequestQueue = Volley.newRequestQueue(context);
+        }
 
-//        String[] hosts = {"kyfw.12306.cn"};
-//        //证书
-//        int[] certRes = {R.raw.kyfw};
-//        String[] certPass = {"asdfqaz"};
-//
-//        try {
-//            Hashtable<String, SSLSocketFactory> socketFactoryMap = new Hashtable<>(hosts.length);
-//            for (int i = 0; i < certRes.length; i++) {
-//                int res = certRes[i];
-//                String password = certPass[i];
-//                SSLSocketFactory sslSocketFactory = createSSLSocketFactory(context, res, password);
-//                socketFactoryMap.put(hosts[i], sslSocketFactory);
-//            }
-//            return new SelfSignSslOkHttpStack(socketFactoryMap);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-        return null;
-    }
+        if (type == Type.HTTPS_DEFALT) {
+            mRequestQueue = getRequestQueueWithDefaultSsl();
+        }
 
-    private static SSLSocketFactory createSSLSocketFactory(Context context, int res, String password)
-            throws CertificateException, NoSuchAlgorithmException, IOException,
-            KeyStoreException, KeyManagementException {
-        InputStream inputStream = context.getResources().openRawResource(res);
-        KeyStore keyStore = KeyStore.getInstance("BKS");
-        keyStore.load(inputStream, password.toCharArray());
-        TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-        tmf.init(keyStore);
-        SSLContext sslContext = SSLContext.getInstance("TLS");
-        sslContext.init(null, tmf.getTrustManagers(), new SecureRandom());
-        return sslContext.getSocketFactory();
-    }
+        if (type == Type.HTTPS_SELF_CERTIFIED) {
+            mRequestQueue = getRequestQueueWithSelfCertifiedSsl();
+        }
 
-    private RequestQueue newRequestQueue(Context context) {
-        RequestQueue requestQueue = Volley.newRequestQueue(context, getSelfSignSslOkHttpStack(context));
-        return requestQueue;
+        return mRequestQueue;
     }
 
     public RequestQueue getRequestQueue() {
         return mRequestQueue;
+    }
+
+    public RequestQueue getRequestQueueWithDefaultSsl() {
+        // lazy initialize the request queue, the queue instance will be
+        // created when it is accessed for the first time
+        if (mRequestQueueWithDefaultSsl == null) {
+            Network network = new BasicNetwork(new HurlStack());
+            Cache cache = new DiskBasedCache(MyApp.getInstance().getCacheDir(), 1024 * 1024);
+            RequestQueue queue = new RequestQueue(cache, network);
+            queue.start();
+            mRequestQueueWithDefaultSsl = queue;  //Volley.newRequestQueue(getApplicationContext());
+            trustAllCertificate();
+        }
+        return mRequestQueueWithDefaultSsl;
+    }
+
+    public RequestQueue getRequestQueueWithSelfCertifiedSsl() {
+        if (mRequestQueueWithSelfCertifiedSsl == null) {
+            try {
+                SSLSocketFactory sslSocketFactory = VolleySSLSocketFactory.getSSLSocketFactory(MyApp.getInstance());
+                Network network = new BasicNetwork(new HurlStack(null, sslSocketFactory));
+                Cache cache = new DiskBasedCache(MyApp.getInstance().getCacheDir(), 1024 * 1024);
+                RequestQueue queue = new RequestQueue(cache, network);
+                queue.start();
+                mRequestQueueWithSelfCertifiedSsl = queue;  //Volley.newRequestQueue(getApplicationContext());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
+                public boolean verify(String hostName, SSLSession ssls) {
+                    return true;
+                }
+            });
+        }
+
+        return mRequestQueueWithSelfCertifiedSsl;
     }
 
     public void addRequest(Request request, Object tag) {
@@ -101,5 +125,37 @@ public class RequestManager {
             request.setTag(request.getUrl());
         }
         mRequestQueue.add(request);
+    }
+
+    public static void trustAllCertificate() {
+        try {
+            SSLContext sslc = SSLContext.getInstance("TLS");
+            TrustManager[] trustManagerArray = {new NullX509TrustManager()};
+            sslc.init(null, trustManagerArray, null);
+            HttpsURLConnection.setDefaultSSLSocketFactory(sslc.getSocketFactory());
+            HttpsURLConnection.setDefaultHostnameVerifier(new NullHostnameVerifier());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static class NullX509TrustManager implements X509TrustManager {
+        public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+            System.out.println();
+        }
+
+        public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+            System.out.println();
+        }
+
+        public X509Certificate[] getAcceptedIssuers() {
+            return new X509Certificate[0];
+        }
+    }
+
+    private static class NullHostnameVerifier implements HostnameVerifier {
+        public boolean verify(String hostname, SSLSession session) {
+            return true;
+        }
     }
 }
