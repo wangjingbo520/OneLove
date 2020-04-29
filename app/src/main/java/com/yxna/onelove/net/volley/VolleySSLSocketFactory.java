@@ -54,7 +54,6 @@ public final class VolleySSLSocketFactory {
             KeyManager[] keyManagers = createKeyManagers(CertificateConfig.keyStoreFileName, CertificateConfig.keyStorePassword, CertificateConfig.alias, encryption);
             TrustManager[] trustManagers = createTrustManagers(CertificateConfig.trustStoreFileName, CertificateConfig.trustStorePassword, encryption);
             context.init(keyManagers, trustManagers, null);
-
         } catch (KeyStoreException e) {
             e.printStackTrace();
         } catch (NoSuchAlgorithmException e) {
