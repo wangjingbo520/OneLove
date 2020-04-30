@@ -26,12 +26,10 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509KeyManager;
 
-/*
- Create the trust keystore. You can give any password you want.
- keytool -import -v -alias server -file server.crt -keystore client.truststore -storetype BKS -provider org.bouncycastle.jce.provider.BouncyCastleProvider
-  
+/**
+ * @author wjb
+ * describe
  */
-
 public final class VolleySSLSocketFactory {
 
     public static final String TAG = "VolleySSLSocketFactory";

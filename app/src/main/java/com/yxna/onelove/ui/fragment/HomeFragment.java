@@ -4,6 +4,9 @@ import android.view.View;
 
 import com.yxna.onelove.R;
 import com.yxna.onelove.base.BaseFragment;
+import com.yxna.onelove.views.customviews.TitleView;
+
+import butterknife.BindView;
 
 
 /**
@@ -11,6 +14,9 @@ import com.yxna.onelove.base.BaseFragment;
  * describe
  */
 public class HomeFragment extends BaseFragment {
+
+    @BindView(R.id.titleView)
+    TitleView titleView;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -24,7 +30,8 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void initView(View root) {
-
+        titleView.setTitle("首页");
+        titleView.setBackImageGone(true);
     }
 
     @Override

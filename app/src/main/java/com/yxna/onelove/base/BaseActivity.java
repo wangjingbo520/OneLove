@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.gyf.immersionbar.ImmersionBar;
 import com.yxna.onelove.utils.ToastUtil;
 
 import butterknife.ButterKnife;
@@ -23,6 +24,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getContentLayout());
         ButterKnife.bind(this);
+        initImmersionBar();
         mActivity = this;
         initView(savedInstanceState);
         initData();
@@ -36,6 +38,18 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void showToast(String message) {
         ToastUtil.showMessage(message);
+    }
+
+    /**
+     * 初始化沉浸式
+     * Init immersion bar.
+     */
+    protected void initImmersionBar() {
+        //设置共同沉浸式样式
+        ImmersionBar.with(this)
+                .statusBarDarkFont(true)
+                .navigationBarDarkIcon(false)
+                .init();
     }
 
 

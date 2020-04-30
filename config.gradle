@@ -1,0 +1,61 @@
+ext {
+    android = [
+            compileSdkVersion: 29,
+            buildToolsVersion: '29.0.2',
+            minSdkVersion    : 24,
+            targetSdkVersion : 29,
+            versionCode      : 1,
+            versionName      : '1.0.0',
+            applicationId    : 'com.yxna.onelove',
+    ]
+
+    androidx = [
+            "androidx.appcompat"       : "androidx.appcompat:appcompat:1.1.0",
+            "android.material"       : "com.google.android.material:material:1.0.0",
+    ]
+
+    dependencies = [
+            "com.gyf.immersionbar"         : "com.gyf.immersionbar:immersionbar:3.0.0",
+            "jessyan:autosize"             : "me.jessyan:autosize:1.1.2",
+            "libaba:fastjson"              : "com.alibaba:fastjson:1.1.54.android",
+            "butterknife"                  : "com.jakewharton:butterknife:10.2.1",
+            "butterknife-compiler"         : "com.jakewharton:butterknife-compiler:10.2.1",
+            "permissionsdispatcher"        : "com.github.hotchemi:permissionsdispatcher:3.1.0",
+            "permissionsprocessor"         : "com.github.hotchemi:permissionsdispatcher-processor:3.1.0",
+            "volley"                       : "com.mcxiaoke.volley:library:1.0.19",
+            "glide"                        : "com.github.bumptech.glide:glide:4.11.0",
+            "glide:compiler"               : "com.github.bumptech.glide:compiler:4.11.0",
+
+
+            "rxpermissions"               : "com.github.tbruyelle:rxpermissions:0.10.2",
+            "pictureSelector"             : "com.github.LuckSiege.PictureSelector:picture_library:v2.4.6",
+            "org.jaaksi:pickerview"       : "org.jaaksi:pickerview:3.0.0",
+            "com.github.CymChad"          : "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.1",
+            "com.jakewharton:disklrucache": "com.jakewharton:disklrucache:2.0.2",
+            "com.google.android.material" : "com.google.android.material:material:1.1.0",
+            "com.jakewharton.timber"      : "com.jakewharton.timber:timber:4.7.1",
+
+    ]
+
+    lottie = [
+            "lottie": "com.airbnb.android:lottie:3.4.0"
+    ]
+
+    smartrefresh = [
+            "smartrefreshLayout": "com.scwang.smartrefresh:SmartRefreshLayout:1.1.2",
+            "smartRefreshHeader": "com.scwang.smartrefresh:SmartRefreshHeader:1.1.2", //没有使用特殊Header，可以不加这行
+    ]
+
+    okhttp3 = [
+            "com.squareup.okhttp3"       : "com.squareup.okhttp3:okhttp:3.12.2",
+            "okhttp3:logging-interceptor": "com.squareup.okhttp3:logging-interceptor:3.12.2",
+    ]
+
+
+    stetho = [
+            "stetho"        : "com.facebook.stetho:stetho:1.5.0",
+            "stetho-okhttp3": "com.facebook.stetho:stetho-okhttp3:1.5.0",
+    ]
+
+}
+

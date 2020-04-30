@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".ui.fragment.HomeFragment">
+    tools:context=".ui.activity.SettingActivity">
 
     <com.yxna.onelove.views.customviews.TitleView
         android:id="@+id/titleView"

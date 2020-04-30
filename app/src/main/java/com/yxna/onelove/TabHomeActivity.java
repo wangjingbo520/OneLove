@@ -2,8 +2,7 @@ package com.yxna.onelove;
 
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
-
+import com.gyf.immersionbar.ImmersionBar;
 import com.yxna.onelove.adapter.MainViewPagerAdapter;
 import com.yxna.onelove.base.BaseActivity;
 import com.yxna.onelove.ui.fragment.AskFragment;
@@ -11,24 +10,16 @@ import com.yxna.onelove.ui.fragment.FindFragment;
 import com.yxna.onelove.ui.fragment.HomeFragment;
 import com.yxna.onelove.ui.fragment.MyFragment;
 import com.yxna.onelove.views.customviews.NoAnimationViewPager;
-import com.yxna.onelove.views.customviews.TabView;
-import com.yxna.onelove.views.customviews.TitleView;
 import com.yxna.onelove.views.customviews.bottomview.NavigationController;
 import com.yxna.onelove.views.customviews.bottomview.PageNavigationView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * @author wjb
  * describe
  */
 public class TabHomeActivity extends BaseActivity {
-    @BindView(R.id.titleView)
-    TitleView titleView;
     @BindView(R.id.act_main_bottom_view)
     PageNavigationView mPageNavigationView;
     @BindView(R.id.viewpager)
@@ -43,6 +34,14 @@ public class TabHomeActivity extends BaseActivity {
     private NavigationController mNavigationController;
 
     @Override
+    protected void initImmersionBar() {
+        super.initImmersionBar();
+        ImmersionBar.with(this)
+                .statusBarDarkFont(true)
+                .init();
+    }
+
+    @Override
     protected void initData() {
 
     }
@@ -54,8 +53,6 @@ public class TabHomeActivity extends BaseActivity {
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        titleView.setBackImageGone(true);
-        titleView.setTitle("首页");
         initTab();
     }
 
