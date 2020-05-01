@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".ui.activity.CollectActivity">
+    tools:context=".ui.activity.MyCollectActivity">
 
     <com.yxna.onelove.views.customviews.TitleView
         android:id="@+id/titleView"
@@ -18,10 +18,10 @@
         android:layout_width="match_parent"
         android:layout_height="42dp"
         android:background="@android:color/white"
-        app:tabIndicatorColor="@android:color/black"
+        app:tabIndicatorColor="@color/themeColor"
         app:tabIndicatorFullWidth="false"
         app:tabMode="scrollable"
-        app:tabSelectedTextColor="@android:color/black" />
+        app:tabSelectedTextColor="@color/themeColor" />
 
 
     <androidx.viewpager.widget.ViewPager

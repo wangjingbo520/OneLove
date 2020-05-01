@@ -45,7 +45,8 @@
             android:paddingRight="15dp">
 
 
-            <ImageView
+            <com.yxna.onelove.views.customviews.CircleImageView
+                android:id="@+id/pic"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:src="@mipmap/me_logo_notlogged" />

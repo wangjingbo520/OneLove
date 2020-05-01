@@ -4,11 +4,11 @@ import android.view.View;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.yxna.onelove.R;
+import com.yxna.onelove.adapter.ViewPagerAdapter;
 import com.yxna.onelove.base.BaseFragment;
 
 import java.util.ArrayList;
@@ -28,14 +28,7 @@ public class FindFragment extends BaseFragment {
     TabLayout tabLayout;
 
     private FragmentManager fragmentManager;
-
     private ArrayList<Fragment> mFragments;
-
-
-    public FindFragment() {
-        // Required empty public constructor
-    }
-
 
     @Override
     protected int getContentLayout() {
@@ -56,7 +49,7 @@ public class FindFragment extends BaseFragment {
         mFragments.add(new FindChildrenFragment());
         mFragments.add(new FindChildrenFragment());
         viewpager.setOffscreenPageLimit(3);
-        viewpager.setAdapter(new FindViewpagerAdapter(fragmentManager, mTitles,
+        viewpager.setAdapter(new ViewPagerAdapter(fragmentManager, mTitles,
                 mFragments));
         tabLayout.setupWithViewPager(viewpager);
         //  setIndicator(tlTab);
@@ -68,32 +61,5 @@ public class FindFragment extends BaseFragment {
 
     }
 
-    static class FindViewpagerAdapter extends FragmentStatePagerAdapter {
 
-        private String[] mTitles;
-        private ArrayList<Fragment> mFragments;
-
-        private FindViewpagerAdapter(FragmentManager fm, String[] mTitles, ArrayList<Fragment>
-                mFragments) {
-            super(fm);
-            this.mTitles = mTitles;
-            this.mFragments = mFragments;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mTitles[position];
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return mFragments.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragments.size();
-        }
-
-    }
 }

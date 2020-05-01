@@ -6,6 +6,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yxna.onelove.R;
@@ -35,6 +36,8 @@ public class LoginActivity extends BaseVRActivity {
     EditText etPhoneNumber;
     @BindView(R.id.tvGetcode)
     TextView tvGetcode;
+    @BindView(R.id.ivClear)
+    ImageView ivClear;
 
     @Override
     protected void initData() {
@@ -43,10 +46,12 @@ public class LoginActivity extends BaseVRActivity {
 
     @Override
     protected void initView(Bundle savedInstanceState) {
+        ivClear.setVisibility(View.GONE);
         titleView.setRightDrawable(R.mipmap.close);
         titleView.setBackImageGone(true);
-        tvGetcode.setClickable(false);
-        titleView.setRightListenser(() -> finish());
+        tvGetcode.setClickable(true);
+       // tvGetcode.setClickable(false);
+        titleView.setRightListenser(this::finish);
         etPhoneNumber.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -55,18 +60,23 @@ public class LoginActivity extends BaseVRActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.toString().length() > 0) {
+                    ivClear.setVisibility(View.VISIBLE);
+                } else {
+                    ivClear.setVisibility(View.GONE);
+                }
 
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (editable.toString().length() == 11) {
-                    tvGetcode.setBackgroundResource(R.drawable.yes_selector);
-                    tvGetcode.setClickable(true);
-                } else {
-                    tvGetcode.setBackgroundResource(R.drawable.no_selector);
-                    tvGetcode.setClickable(false);
-                }
+//                if (editable.toString().length() == 11) {
+//                    tvGetcode.setBackgroundResource(R.drawable.yes_selector);
+//                    tvGetcode.setClickable(true);
+//                } else {
+//                    tvGetcode.setBackgroundResource(R.drawable.no_selector);
+//                    tvGetcode.setClickable(false);
+//                }
             }
         });
 
@@ -79,7 +89,7 @@ public class LoginActivity extends BaseVRActivity {
     }
 
 
-    @OnClick({R.id.tvGetcode, R.id.ivWx, R.id.ivWb})
+    @OnClick({R.id.tvGetcode, R.id.ivWx, R.id.ivWb, R.id.ivClear})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tvGetcode:
@@ -89,6 +99,11 @@ public class LoginActivity extends BaseVRActivity {
             case R.id.ivWx:
                 break;
             case R.id.ivWb:
+                break;
+            case R.id.ivClear:
+                etPhoneNumber.setText("");
+                break;
+            default:
                 break;
         }
     }
