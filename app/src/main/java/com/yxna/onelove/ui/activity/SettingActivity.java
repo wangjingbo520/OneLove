@@ -1,5 +1,7 @@
 package com.yxna.onelove.ui.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.yxna.onelove.R;
@@ -13,6 +15,11 @@ import butterknife.BindView;
  * describe
  */
 public class SettingActivity extends BaseVRActivity {
+
+    public static void start(Context context) {
+        Intent starter = new Intent(context, SettingActivity.class);
+        context.startActivity(starter);
+    }
 
     @BindView(R.id.titleView)
     TitleView titleView;

@@ -4,15 +4,20 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
 
-    <color name="colorTitle">#f5f5f5</color>
+    <color name="colorF5F5F5">#f5f5f5</color>
 
-    <color name="themeColor">#318AE6</color>
+    <color name="themeColor">#6E63F3</color>
     <color name="textColor3">#333333</color>
     <color name="textColor6">#666666</color>
     <color name="textColor9">#999999</color>
+    <color name="tab_default_color">#B0B0B0</color>
+    <color name="line_color">#BCBCBC</color>
 
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+
+    <color name="pink">#C5C1FA</color>
+    <color name="blue">#5E97E5</color>
 
 
 </resources>

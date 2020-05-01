@@ -27,13 +27,13 @@ ext {
             "glide:compiler"               : "com.github.bumptech.glide:compiler:4.11.0",
 
 
-            "rxpermissions"               : "com.github.tbruyelle:rxpermissions:0.10.2",
-            "pictureSelector"             : "com.github.LuckSiege.PictureSelector:picture_library:v2.4.6",
-            "org.jaaksi:pickerview"       : "org.jaaksi:pickerview:3.0.0",
-            "com.github.CymChad"          : "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.1",
-            "com.jakewharton:disklrucache": "com.jakewharton:disklrucache:2.0.2",
-            "com.google.android.material" : "com.google.android.material:material:1.1.0",
-            "com.jakewharton.timber"      : "com.jakewharton.timber:timber:4.7.1",
+            "rxpermissions"                : "com.github.tbruyelle:rxpermissions:0.10.2",
+            "pictureSelector"              : "com.github.LuckSiege.PictureSelector:picture_library:v2.4.6",
+            "org.jaaksi:pickerview"        : "org.jaaksi:pickerview:3.0.0",
+            "com.github.CymChad"           : "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.1",
+            "com.jakewharton:disklrucache" : "com.jakewharton:disklrucache:2.0.2",
+            "com.google.android.material"  : "com.google.android.material:material:1.1.0",
+            "com.jakewharton.timber"       : "com.jakewharton.timber:timber:4.7.1",
 
     ]
 

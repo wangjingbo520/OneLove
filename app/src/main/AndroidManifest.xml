@@ -12,13 +12,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.activity.RechargeActivity"></activity>
+        <activity android:name=".ui.activity.FeedbackActivity" />
+        <activity android:name=".ui.activity.GiftActivity" />
+        <activity android:name=".ui.activity.AnswerActivity" />
+        <activity android:name=".ui.activity.TestActivity" />
+        <activity android:name=".ui.activity.TalkingSkillActivity" />
+        <activity android:name=".ui.activity.TaskActivity" />
+        <activity android:name=".ui.activity.HistoryActivity" />
+        <activity android:name=".ui.activity.FaceActivity" />
+        <activity android:name=".ui.activity.CollectActivity" />
+        <activity android:name=".ui.activity.SelectSexActivity" />
+        <activity android:name=".ui.activity.InputCodeActivity" />
+        <activity android:name=".TabHomeActivity" />
         <activity
             android:name=".ui.activity.SettingActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|keyboardHidden" />
-        <activity android:name=".ui.activity.RegisterActivity" />
-        <activity android:name=".ui.activity.LoginActivity" /> <!-- <activity android:name=".TabHomeActivity" /> -->
+        <activity android:name=".ui.activity.RegisterActivity" /> <!-- <activity android:name=".ui.activity.LoginActivity" /> &lt;!&ndash; <activity android:name=".TabHomeActivity" /> &ndash;&gt; -->
         <activity android:name=".MainActivity" />
-        <activity android:name=".TabHomeActivity">
+        <activity android:name=".ui.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

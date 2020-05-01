@@ -72,26 +72,26 @@ public class TabHomeActivity extends BaseActivity {
                 .dontTintIcon()
                 .setRipperColor(getColor(R.color.textColor9))
                 .addItem(
-                        R.mipmap.ic_launcher,
-                        R.mipmap.ic_launcher,
+                        R.mipmap.home,
+                        R.mipmap.homed,
                         "首页",
                         getColor(R.color.themeColor))
                 .addItem(
-                        R.mipmap.ic_launcher,
-                        R.mipmap.ic_launcher,
+                        R.mipmap.ask,
+                        R.mipmap.asked,
                         "问答",
                         getColor(R.color.themeColor))
                 .addItem(
-                        R.mipmap.ic_launcher,
-                        R.mipmap.ic_launcher,
+                        R.mipmap.find,
+                        R.mipmap.finded,
                         "发现",
                         getColor(R.color.themeColor))
                 .addItem(
-                        R.mipmap.ic_launcher,
-                        R.mipmap.ic_launcher,
+                        R.mipmap.my,
+                        R.mipmap.myed,
                         "我的",
                         getColor(R.color.themeColor))
-                .setDefaultColor(getColor(R.color.textColor3))
+                .setDefaultColor(getColor(R.color.tab_default_color))
                 .build();
         mNavigationController.setupWithViewPager(viewpager);
     }

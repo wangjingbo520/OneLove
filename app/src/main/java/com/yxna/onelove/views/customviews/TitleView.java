@@ -9,6 +9,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.yxna.onelove.R;
+import com.yxna.onelove.ui.activity.SelectSexActivity;
+import com.yxna.onelove.utils.OnSingleClickListener;
 
 
 /**
@@ -21,6 +23,20 @@ public class TitleView extends FrameLayout {
     private FrameLayout fl_back;
     private TextView tv_right;
     private Activity mContext;
+    private IRigntListener iRigntListener;
+
+    public interface IRigntListener {
+        void onTitleRightClick();
+    }
+
+
+    public IRigntListener getiRigntListener() {
+        return iRigntListener;
+    }
+
+    public void setRigntListener(IRigntListener iRigntListener) {
+        this.iRigntListener = iRigntListener;
+    }
 
     public TitleView(Context context) {
         super(context);
@@ -55,6 +71,18 @@ public class TitleView extends FrameLayout {
         }
     }
 
+
+    public void setRightListenser(IRigntListener rightListenser) {
+        tv_right.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            protected void onSingleClick(View view) {
+                if (rightListenser != null) {
+                    rightListenser.onTitleRightClick();
+                }
+            }
+        });
+    }
+
     public void setTitle(String title) {
         tvTitle.setText(title);
     }
@@ -73,6 +101,10 @@ public class TitleView extends FrameLayout {
 
     public void setTextColor(int color) {
         tvTitle.setTextColor(color);
+    }
+
+    public void setRightDrawable(int resId) {
+        tv_right.setBackgroundResource(resId);
     }
 
 

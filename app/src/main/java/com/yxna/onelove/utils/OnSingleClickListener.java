@@ -12,7 +12,7 @@ public abstract class OnSingleClickListener implements View.OnClickListener {
     private static final int MIN_CLICK_DELAY_TIME = 1000;
     private long lastClickTime;
 
-    abstract void onSingleClick(View view);
+    protected abstract void onSingleClick(View view);
 
     @Override
     public void onClick(View v) {

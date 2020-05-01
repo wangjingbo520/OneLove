@@ -3,4 +3,23 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <array name="charge">
+        <item>1点心思</item>
+        <item>5点心思</item>
+        <item>10点心思</item>
+        <item>1000金币</item>
+        <item>1000金币</item>
+        <item>1000金币</item>
+    </array>
+
+    <array name="money">
+        <item>1RMB</item>
+        <item>5RMB</item>
+        <item>100元</item>
+        <item>100元</item>
+        <item>100元</item>
+        <item>100元</item>
+    </array>
+
 </resources>
