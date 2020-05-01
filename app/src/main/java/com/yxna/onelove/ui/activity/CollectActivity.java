@@ -4,8 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 import com.yxna.onelove.R;
 import com.yxna.onelove.base.BaseActivity;
+import com.yxna.onelove.views.customviews.TitleView;
+
+import butterknife.BindView;
 
 
 /**
@@ -14,6 +20,12 @@ import com.yxna.onelove.base.BaseActivity;
  * describe
  */
 public class CollectActivity extends BaseActivity {
+    @BindView(R.id.titleView)
+    TitleView titleView;
+    @BindView(R.id.viewpager)
+    ViewPager viewpager;
+    @BindView(R.id.tabLayout)
+    TabLayout tabLayout;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, CollectActivity.class);
@@ -27,6 +39,7 @@ public class CollectActivity extends BaseActivity {
 
     @Override
     protected void initView(Bundle savedInstanceState) {
+        titleView.setTitle("我的收藏");
 
     }
 

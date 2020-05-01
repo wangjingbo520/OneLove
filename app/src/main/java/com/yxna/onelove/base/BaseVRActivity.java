@@ -51,10 +51,10 @@ public abstract class BaseVRActivity extends BaseActivity {
     }
 
 
-    private void onNetJSONArray(JSONArray obj, String api_name) {
+    public void onNetJSONArray(JSONArray obj, String api_name) {
     }
 
-    private void onNetJSONObject(JSONObject obj, String api_name) {
+    public void onNetJSONObject(JSONObject obj, String api_name) {
 
     }
 

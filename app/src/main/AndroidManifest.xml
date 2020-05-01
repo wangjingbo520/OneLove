@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.RechargeActivity"></activity>
+        <activity android:name=".ui.activity.BalanceDetailActivity"></activity>
+        <activity android:name=".ui.activity.RechargeActivity" />
         <activity android:name=".ui.activity.FeedbackActivity" />
         <activity android:name=".ui.activity.GiftActivity" />
         <activity android:name=".ui.activity.AnswerActivity" />

@@ -43,8 +43,10 @@
                     android:textSize="@dimen/textSize_16" />
 
                 <TextView
+                    android:id="@+id/tvDetail"
+                    android:gravity="center"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:text="余额明细"
                     android:textColor="@color/blue"
                     android:textSize="@dimen/textSize_16" />
@@ -183,7 +185,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/tvGetcode"
+                    android:id="@+id/tvPay"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginLeft="20dp"

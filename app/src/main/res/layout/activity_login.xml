@@ -67,7 +67,6 @@
         android:layout_marginTop="50dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/no_selector"
-        android:clickable="true"
         android:gravity="center"
         android:text="获取验证码"
         android:textColor="@color/white"

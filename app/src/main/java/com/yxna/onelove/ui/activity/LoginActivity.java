@@ -11,7 +11,12 @@ import android.widget.TextView;
 import com.yxna.onelove.R;
 import com.yxna.onelove.TabHomeActivity;
 import com.yxna.onelove.base.BaseVRActivity;
+import com.yxna.onelove.net.volley.InterfaceMethod;
 import com.yxna.onelove.views.customviews.TitleView;
+
+import org.json.JSONObject;
+
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,6 +45,7 @@ public class LoginActivity extends BaseVRActivity {
     protected void initView(Bundle savedInstanceState) {
         titleView.setRightDrawable(R.mipmap.close);
         titleView.setBackImageGone(true);
+        tvGetcode.setClickable(false);
         titleView.setRightListenser(() -> finish());
         etPhoneNumber.addTextChangedListener(new TextWatcher() {
             @Override
@@ -54,13 +60,13 @@ public class LoginActivity extends BaseVRActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-//                if (editable.toString().length() == 11) {
-//                    tvGetcode.setBackgroundResource(R.drawable.yes_selector);
-//                    tvGetcode.setClickable(true);
-//                } else {
-//                    tvGetcode.setBackgroundResource(R.drawable.no_selector);
-//                    tvGetcode.setClickable(false);
-//                }
+                if (editable.toString().length() == 11) {
+                    tvGetcode.setBackgroundResource(R.drawable.yes_selector);
+                    tvGetcode.setClickable(true);
+                } else {
+                    tvGetcode.setBackgroundResource(R.drawable.no_selector);
+                    tvGetcode.setClickable(false);
+                }
             }
         });
 
@@ -77,8 +83,8 @@ public class LoginActivity extends BaseVRActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tvGetcode:
-                // startActivity(new Intent(this, InputCodeActivity.class));
                 startActivity(new Intent(this, TabHomeActivity.class));
+                //getCode();
                 break;
             case R.id.ivWx:
                 break;
@@ -87,5 +93,19 @@ public class LoginActivity extends BaseVRActivity {
         }
     }
 
+    private void getCode() {
+        String phone = etPhoneNumber.getText().toString().trim();
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("phone", phone);
+        hashMap.put("type", "1");
+        doPost(hashMap, InterfaceMethod.getVerificationCode);
+    }
 
+
+    @Override
+    public void onNetJSONObject(JSONObject obj, String api_name) {
+        super.onNetJSONObject(obj, api_name);
+        showToast("验证码已发送");
+        startActivity(new Intent(this, TabHomeActivity.class));
+    }
 }

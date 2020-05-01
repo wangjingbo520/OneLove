@@ -15,14 +15,6 @@ import butterknife.BindView;
  */
 public class AskFragment extends BaseFragment {
 
-    @BindView(R.id.titleView)
-    TitleView titleView;
-
-    public AskFragment() {
-        // Required empty public constructor
-    }
-
-
     @Override
     protected int getContentLayout() {
         return R.layout.fragment_ask;
@@ -30,8 +22,6 @@ public class AskFragment extends BaseFragment {
 
     @Override
     protected void initView(View root) {
-        titleView.setTitle("问答");
-        titleView.setBackImageGone(true);
     }
 
     @Override

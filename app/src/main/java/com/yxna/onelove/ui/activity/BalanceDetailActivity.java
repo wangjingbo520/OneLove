@@ -1,5 +1,7 @@
 package com.yxna.onelove.ui.activity;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,15 +18,15 @@ import butterknife.BindView;
  * @date 2019/9/21
  * describe
  */
-public class HistoryActivity extends BaseActivity {
+public class BalanceDetailActivity extends BaseActivity {
+
+    public static void start(Context context) {
+        Intent starter = new Intent(context, BalanceDetailActivity.class);
+        context.startActivity(starter);
+    }
 
     @BindView(R.id.titleView)
     TitleView titleView;
-
-    public static void start(Context context) {
-        Intent starter = new Intent(context, HistoryActivity.class);
-        context.startActivity(starter);
-    }
 
     @Override
     protected void initData() {
@@ -33,12 +35,11 @@ public class HistoryActivity extends BaseActivity {
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        titleView.setTitle("历史");
-
+        titleView.setTitle("余额明细");
     }
 
     @Override
     protected int getContentLayout() {
-        return R.layout.activity_history;
+        return R.layout.activity_balance_detail;
     }
 }

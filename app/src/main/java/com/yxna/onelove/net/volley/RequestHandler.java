@@ -2,6 +2,7 @@ package com.yxna.onelove.net.volley;
 
 import android.content.Context;
 import android.os.Handler;
+import android.util.Log;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -46,9 +47,11 @@ public class RequestHandler {
                                    final NetWorkRequestListener listener, String interfaceMethod, IVolleyResponse volleyResponse) {
         listener.onPreRequest();
         StringRequest request = new StringRequest(method, InterfaceMethod.base_url + interfaceMethod, response -> {
+            Log.e("=========>" + interfaceMethod, response);
             volleyResponse.onSuccess(response, interfaceMethod);
             listener.onResponse();
         }, volleyError -> {
+            Log.e("=========>" + interfaceMethod, volleyError.getMessage().toString());
             listener.onFailed();
             volleyResponse.onFailed(volleyError);
         }) {

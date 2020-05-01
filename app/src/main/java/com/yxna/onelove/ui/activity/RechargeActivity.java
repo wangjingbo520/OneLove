@@ -3,13 +3,12 @@ package com.yxna.onelove.ui.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.GridView;
+import android.view.View;
 
 import com.yxna.onelove.R;
 import com.yxna.onelove.adapter.ChargeAdapter;
 import com.yxna.onelove.base.BaseActivity;
 import com.yxna.onelove.bean.ChargeModel;
-import com.yxna.onelove.utils.ListViewUtils;
 import com.yxna.onelove.views.customviews.MyGridView;
 import com.yxna.onelove.views.customviews.TitleView;
 
@@ -17,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 /**
@@ -57,9 +58,7 @@ public class RechargeActivity extends BaseActivity {
         titleView.setBackfinishListenser(this);
         titleView.setRightDrawable(R.mipmap.icon_help);
         titleView.setRightListenser(() -> {
-
         });
-
     }
 
     @Override
@@ -67,4 +66,15 @@ public class RechargeActivity extends BaseActivity {
         return R.layout.activity_recharge;
     }
 
+
+    @OnClick({R.id.tvDetail, R.id.tvPay})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.tvDetail:
+                BalanceDetailActivity.start(mActivity);
+                break;
+            case R.id.tvPay:
+                break;
+        }
+    }
 }
