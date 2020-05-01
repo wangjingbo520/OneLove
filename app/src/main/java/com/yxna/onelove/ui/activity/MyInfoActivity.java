@@ -63,6 +63,7 @@ public class MyInfoActivity extends BaseActivity {
         }
     }
 
+
     private void showPopwindow() {
         UploadCommDialogFragment picDialogFragment = UploadCommDialogFragment.newInstance(1, true, true);
         picDialogFragment.setOnPicSelectorResultCallback(new BaseDialogFragment.OnPicSelectorResultCallback() {
