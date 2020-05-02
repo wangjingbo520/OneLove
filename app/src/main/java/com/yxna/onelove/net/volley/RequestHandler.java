@@ -2,6 +2,7 @@ package com.yxna.onelove.net.volley;
 
 import android.content.Context;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
@@ -12,6 +13,8 @@ import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.yxna.onelove.MyApp;
+import com.yxna.onelove.utils.Constants;
+import com.yxna.onelove.utils.SPUtil;
 import com.yxna.onelove.utils.ToastUtil;
 import com.yxna.onelove.views.dialog.LoadingDialog;
 
@@ -61,13 +64,13 @@ public class RequestHandler {
                 if (map == null) {
                     map = new HashMap<>();
                 }
-                // 在此统一添加header
-                //  map.put("Content-type", "application/x-www-form-urlencoded");
-//                if (TextUtils.isEmpty(MyApp.getDevice_id())) {
-//                    MyApp.initDeviceId(Utils.getIMEI(MyApp.myApp.getApplicationContext()));
-//                }
-//                String device_id = MyApp.getDevice_id();
-//                map.put("device_id", device_id);
+
+                String token = SPUtil.getInstance().getString(Constants.TOKEN);
+                if (TextUtils.isEmpty(token)) {
+                    return map;
+                }
+
+                map.put("ACCESS_TOKEN", token);
                 return map;
             }
 

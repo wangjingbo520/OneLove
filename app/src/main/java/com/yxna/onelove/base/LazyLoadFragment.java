@@ -1,6 +1,7 @@
 package com.yxna.onelove.base;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -8,7 +9,7 @@ import androidx.annotation.Nullable;
  * @author wjb
  * describe
  */
-public abstract class LazyLoadFragment extends BaseFragment {
+public abstract class LazyLoadFragment extends BaseVRFragment {
     /**
      * 是否初始化过布局
      */
@@ -56,6 +57,7 @@ public abstract class LazyLoadFragment extends BaseFragment {
         if (isVisibleToUser && isViewInitiated && (!isDataInitiated || forceUpdate)) {
             fetchData();
             isDataInitiated = true;
+            Log.e("====>", "开始懒加载了");
         }
     }
 }

@@ -20,16 +20,6 @@ public class PurchaseVipActivity extends BaseActivity {
     }
 
     @Override
-    protected void initImmersionBar() {
-        super.initImmersionBar();
-//        ImmersionBar.with(this).statusBarView(R.id.top_view)
-//                .navigationBarColor(R.color.colorPrimary)
-//                .fullScreen(true)
-//                .addTag("PicAndColor")
-//                .init();
-    }
-
-    @Override
     protected void initData() {
 
     }

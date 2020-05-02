@@ -14,13 +14,16 @@ import java.util.HashMap;
  * @author wjb（H）
  * @date describe
  */
-public abstract class BaseVRActivity extends BaseActivity {
+public abstract class BaseVRFragment extends BaseFragment {
 
     HashMap<String, String> header = null;
 
     //简单粗暴傻瓜式的请求方式，在我看来比mvp+retrofit+rxjava用起来舒服些,哈哈
     protected void doPost(HashMap<String, String> params, String api_name) {
-        RequestHandler.addRequest(mActivity, Request.Method.POST, params, header,
+        params.put("clientType", 2 + "");
+        params.put("version", "");
+        params.put("clientNum", 1 + "");
+        RequestHandler.addRequest(mContext, Request.Method.POST, params, header,
                 api_name, new RequestHandler.IVolleyResponse() {
                     @Override
                     public void onSuccess(String response, String interfaceMethod) {
@@ -57,6 +60,4 @@ public abstract class BaseVRActivity extends BaseActivity {
     public void onNetJSONObject(JSONObject obj, String api_name) {
 
     }
-
-
 }

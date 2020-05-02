@@ -11,6 +11,7 @@ public class InterfaceMethod {
 
     public static final String memberLoginOrRegister = "app/api/user/memberLoginOrRegister";
     public static final String getVerificationCode = "/app/api/user/getVerificationCode";
+    public static final String getMemberCollectListById = "/app/api/user/my/getMemberCollectListById";
 
 
 }
