@@ -4,9 +4,9 @@ import android.view.View;
 
 import com.yxna.onelove.R;
 import com.yxna.onelove.base.BaseFragment;
-import com.yxna.onelove.views.customviews.TitleView;
+import com.yxna.onelove.ui.activity.PutQuestionActivity;
 
-import butterknife.BindView;
+import butterknife.OnClick;
 
 
 /**
@@ -27,5 +27,19 @@ public class AskFragment extends BaseFragment {
     @Override
     protected void initData() {
 
+    }
+
+
+    @OnClick({R.id.llSearch, R.id.tvQuesition})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.llSearch:
+                break;
+            case R.id.tvQuesition:
+                PutQuestionActivity.start(getActivity());
+                break;
+            default:
+                break;
+        }
     }
 }

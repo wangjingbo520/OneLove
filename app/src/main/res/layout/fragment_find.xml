@@ -39,7 +39,8 @@
                 android:ellipsize="end"
                 android:hint="热门搜索：女朋友不理我"
                 android:maxLines="1"
-                android:textColor="@color/textColor3" />
+                android:textColor="@color/textColor3"
+                android:textSize="@dimen/textSize_16" />
 
             <ImageView
                 android:layout_width="20dp"

@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
-
     <application
         android:name=".MyApp"
         android:icon="@mipmap/ic_launcher"
@@ -17,6 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.activity.PurchaseVipActivity"></activity>
+        <activity android:name=".ui.activity.BindAccountActivity" />
+        <activity android:name=".ui.activity.PutQuestionActivity" />
+        <activity android:name=".ui.activity.UpdatePhoneActivity" />
         <activity android:name=".ui.activity.MyInfoActivity" />
         <activity android:name=".ui.activity.BalanceDetailActivity" />
         <activity android:name=".ui.activity.RechargeActivity" />

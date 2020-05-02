@@ -6,7 +6,10 @@
             <corners android:radius="5dp" />
         </shape>
     </item>
-    <item android:drawable="@drawable/red_round_btn_bg" android:state_pressed="true" />
-    <item android:drawable=" @drawable/red_round_btn_pressed_bg" />
+    <item android:drawable="@drawable/red_round_btn_pressed_bg" android:state_pressed="true" />
+    <item android:drawable="@drawable/red_round_btn_bg" />
 </selector>
+
+
+
 

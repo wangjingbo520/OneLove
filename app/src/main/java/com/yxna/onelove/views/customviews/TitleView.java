@@ -91,6 +91,10 @@ public class TitleView extends FrameLayout {
         tv_right.setText(title);
     }
 
+    public void setRightTitleColor(int color) {
+        tv_right.setTextColor(color);
+    }
+
     public String getRightText() {
         return tv_right.getText().toString();
     }

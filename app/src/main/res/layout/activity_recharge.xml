@@ -44,9 +44,9 @@
 
                 <TextView
                     android:id="@+id/tvDetail"
-                    android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:gravity="center"
                     android:text="余额明细"
                     android:textColor="@color/blue"
                     android:textSize="@dimen/textSize_16" />
@@ -107,16 +107,16 @@
 
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_height="55dp"
+                        android:layout_height="45dp"
                         android:layout_marginRight="40dp"
                         android:layout_weight="1"
                         android:background="@drawable/pay_select_selector"
                         android:gravity="center">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="20dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
                             android:src="@mipmap/pay_icon_zhifubao" />
 
                         <TextView
@@ -131,15 +131,15 @@
 
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_height="55dp"
+                        android:layout_height="45dp"
                         android:layout_weight="1"
                         android:background="@drawable/pay_select_selector"
                         android:gravity="center">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="20dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
                             android:src="@mipmap/pay_icon_zhifubao" />
 
                         <TextView

@@ -11,6 +11,7 @@ import com.yxna.onelove.ui.activity.GiftActivity;
 import com.yxna.onelove.ui.activity.HistoryActivity;
 import com.yxna.onelove.ui.activity.MyCollectActivity;
 import com.yxna.onelove.ui.activity.MyInfoActivity;
+import com.yxna.onelove.ui.activity.PurchaseVipActivity;
 import com.yxna.onelove.ui.activity.RechargeActivity;
 import com.yxna.onelove.ui.activity.SettingActivity;
 import com.yxna.onelove.ui.activity.TalkingSkillActivity;
@@ -51,7 +52,8 @@ public class MyFragment extends BaseFragment {
     @OnClick({R.id.ivEmail, R.id.ivEdit, R.id.llCollect,
             R.id.llFace, R.id.llHistory, R.id.llTask,
             R.id.llHuashu, R.id.llTest, R.id.llAnswer, R.id.llGift
-            , R.id.llSetting, R.id.llOpinion, R.id.llVip, R.id.pic})
+            , R.id.llSetting, R.id.llOpinion, R.id.llVip, R.id.pic
+            , R.id.ivPay})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.ivEmail:
@@ -89,10 +91,13 @@ public class MyFragment extends BaseFragment {
                 FeedbackActivity.start(getActivity());
                 break;
             case R.id.llVip:
-                RechargeActivity.start(getActivity());
+                PurchaseVipActivity.start(getActivity());
                 break;
             case R.id.pic:
-                MyInfoActivity.start(getActivity());
+                //MyInfoActivity.start(getActivity());
+                break;
+            case R.id.ivPay:
+                RechargeActivity.start(getActivity());
                 break;
             default:
                 break;

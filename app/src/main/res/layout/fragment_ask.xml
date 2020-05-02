@@ -17,6 +17,7 @@
         android:paddingRight="15dp">
 
         <LinearLayout
+            android:id="@+id/llSearch"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -39,11 +40,13 @@
                 android:ellipsize="end"
                 android:hint="热门搜索：女朋友不理我"
                 android:maxLines="1"
-                android:textColor="@color/textColor3" />
+                android:textColor="@color/textColor3"
+                android:textSize="@dimen/textSize_16" />
 
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tvQuesition"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="@dimen/height_10"
