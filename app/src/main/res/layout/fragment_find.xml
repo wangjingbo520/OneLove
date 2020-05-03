@@ -31,18 +31,22 @@
                 android:src="@mipmap/icon_search_nor" />
 
             <EditText
+                android:id="@+id/etSearchResult"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="12dp"
                 android:layout_weight="1"
                 android:background="@null"
+                android:clickable="true"
                 android:ellipsize="end"
+                android:focusable="false"
                 android:hint="热门搜索：女朋友不理我"
                 android:maxLines="1"
                 android:textColor="@color/textColor3"
                 android:textSize="@dimen/textSize_16" />
 
             <ImageView
+                android:id="@+id/ivClearResult"
                 android:layout_width="20dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="10dp"

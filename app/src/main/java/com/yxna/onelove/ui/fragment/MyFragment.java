@@ -5,6 +5,7 @@ import android.view.View;
 import com.yxna.onelove.R;
 import com.yxna.onelove.base.BaseFragment;
 import com.yxna.onelove.ui.activity.AnswerActivity;
+import com.yxna.onelove.ui.activity.AnswerQuestionActivity;
 import com.yxna.onelove.ui.activity.FaceActivity;
 import com.yxna.onelove.ui.activity.FeedbackActivity;
 import com.yxna.onelove.ui.activity.GiftActivity;
@@ -76,7 +77,8 @@ public class MyFragment extends BaseFragment {
                 TalkingSkillActivity.start(getActivity());
                 break;
             case R.id.llTest:
-                TestActivity.start(getActivity());
+                // TestActivity.start(getActivity());
+                AnswerQuestionActivity.start(mContext);
                 break;
             case R.id.llAnswer:
                 AnswerActivity.start(getActivity());

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".ui.activity.AnswerQuestionActivity">
+
+    <com.yxna.onelove.views.customviews.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1.如果以后，可以隐居，你会选择在哪儿？"
+                android:textColor="@color/textColor3"
+                android:textSize="@dimen/textSize_18" />
+
+            <RadioGroup
+                android:id="@+id/mRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <!--四个选项-->
+
+                <RadioButton
+                    android:id="@+id/RadioA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/height_10"
+                    android:background="@drawable/radiobutton_background"
+                    android:button="@null"
+                    android:padding="@dimen/height_15"
+                    android:text="A.靠近湖边"
+                    android:textColor="@color/radiobutton_textcolor"
+                    android:textSize="@dimen/textSize_16" />
+
+                <RadioButton
+                    android:id="@+id/RadioB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/radiobutton_background"
+                    android:button="@null"
+                    android:padding="@dimen/height_15"
+                    android:text="B.靠近河边"
+                    android:textColor="@color/radiobutton_textcolor"
+                    android:textSize="@dimen/textSize_16" />
+
+                <RadioButton
+                    android:id="@+id/RadioC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/radiobutton_background"
+                    android:button="@null"
+                    android:padding="@dimen/height_15"
+                    android:text="C.深山内"
+                    android:textColor="@color/radiobutton_textcolor"
+                    android:textSize="@dimen/textSize_16" />
+
+                <RadioButton
+                    android:id="@+id/RadioD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/radiobutton_background"
+                    android:button="@null"
+                    android:padding="@dimen/height_15"
+                    android:text="D.森林"
+                    android:textColor="@color/radiobutton_textcolor"
+                    android:textSize="@dimen/textSize_16" />
+
+                <!--正确答案，默认是隐藏的-->
+
+                <TextView
+                    android:id="@+id/tv_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:button="@null"
+                    android:text="正确答案：肯定选A呀！"
+                    android:textSize="18sp"
+                    android:visibility="invisible" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <!--切换题目-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btn_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="上一题" />
+
+        <Button
+            android:id="@+id/btn_down"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="下一题" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -16,7 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.PurchaseVipActivity"></activity>
+        <activity android:name=".ui.activity.AnswerQuestionActivity"></activity>
+        <activity android:name=".ui.activity.FindSearchActivity" />
+        <activity android:name=".ui.activity.PurchaseVipActivity" />
         <activity android:name=".ui.activity.BindAccountActivity" />
         <activity android:name=".ui.activity.PutQuestionActivity" />
         <activity android:name=".ui.activity.UpdatePhoneActivity" />
@@ -34,7 +36,9 @@
         <activity android:name=".ui.activity.MyCollectActivity" />
         <activity android:name=".ui.activity.SelectSexActivity" />
         <activity android:name=".ui.activity.InputCodeActivity" />
-        <activity android:name=".TabHomeActivity" />
+        <activity
+            android:name=".TabHomeActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.activity.SettingActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|keyboardHidden" />

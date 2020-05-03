@@ -11,9 +11,10 @@ import com.yxna.onelove.utils.ToastUtil;
 
 import butterknife.ButterKnife;
 
+
 /**
- * @author wjb（H）
- * @date describe
+ * @author wjb
+ * describe
  */
 @SuppressLint("Registered")
 public abstract class BaseActivity extends AppCompatActivity {

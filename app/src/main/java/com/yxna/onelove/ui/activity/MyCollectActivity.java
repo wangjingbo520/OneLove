@@ -26,8 +26,7 @@ import butterknife.BindView;
 
 
 /**
- * @author Bobo
- * @date 2019/9/21
+ * @author wjb
  * describe
  */
 public class MyCollectActivity extends BaseActivity {

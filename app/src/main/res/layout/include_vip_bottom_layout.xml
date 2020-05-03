@@ -107,7 +107,7 @@
 
 
     <TextView
-        android:id="@+id/tvGetcode"
+        android:id="@+id/tvOpen"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"

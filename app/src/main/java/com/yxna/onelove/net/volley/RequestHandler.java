@@ -71,6 +71,7 @@ public class RequestHandler {
                 }
 
                 map.put("ACCESS_TOKEN", token);
+
                 return map;
             }
 
