@@ -12,7 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 public class CustomLinearLayoutManager extends LinearLayoutManager {
     private boolean isScrollEnabled = true;
 
-    //
+    private double speedRatio = 0.95;
+
     public CustomLinearLayoutManager(Context context) {
         super(context);
     }
@@ -20,22 +21,11 @@ public class CustomLinearLayoutManager extends LinearLayoutManager {
     public void setScrollEnabled(boolean flag) {
         this.isScrollEnabled = flag;
     }
-//
-//
-//    /**
-//     * 禁止滑动
-//     * canScrollHorizontally（禁止横向滑动）
-//     *
-//     * @return
-//     */
-//    @Override
-//    public boolean canScrollHorizontally() {
-//        return isScrollEnabled && super.canScrollVertically();
-//    }
 
 
     @Override
     public boolean canScrollHorizontally() {
         return isScrollEnabled;
     }
+
 }

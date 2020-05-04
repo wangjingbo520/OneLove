@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorF5F5F5"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context=".ui.activity.AnswerQuestionActivity">
@@ -13,16 +14,33 @@
         android:layout_height="wrap_content" />
 
     <LinearLayout
-        android:id="@+id/llRoot"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/height_15"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginRight="@dimen/height_15"
+        android:background="@drawable/shape_question"
+        android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvIndex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/textColor3"
+            android:textSize="@dimen/textSize_16" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>

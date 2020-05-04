@@ -1,35 +1,29 @@
 package com.yxna.onelove.ui.activity;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemClickListener;
-import com.yxna.onelove.MainActivity;
 import com.yxna.onelove.R;
 import com.yxna.onelove.adapter.AnsQuestionAdapter;
 import com.yxna.onelove.adapter.CustomLinearLayoutManager;
 import com.yxna.onelove.base.BaseActivity;
-import com.yxna.onelove.views.customviews.GestureListener;
+import com.yxna.onelove.utils.OnSingleClickListener;
 import com.yxna.onelove.views.customviews.TitleView;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 
 /**
@@ -41,27 +35,23 @@ public class AnswerQuestionActivity extends BaseActivity {
     TitleView titleView;
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
-    @BindView(R.id.llRoot)
-    LinearLayout llRoot;
+    @BindView(R.id.tvIndex)
+    TextView tvIndex;
 
     private AnsQuestionAdapter adapter;
-
-    private int index = 0;
     private CustomLinearLayoutManager layoutManager;
 
-    private GestureListener gestureListener;
+    private int index = 0;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, AnswerQuestionActivity.class);
         context.startActivity(starter);
     }
 
-
     @Override
     protected void initData() {
-
-
     }
+
 
     @Override
     protected void initView(Bundle savedInstanceState) {
@@ -80,27 +70,15 @@ public class AnswerQuestionActivity extends BaseActivity {
         adapter = new AnsQuestionAdapter(R.layout.question_layout, list);
         recyclerView.setAdapter(adapter);
         recyclerView.addOnScrollListener(new OnScrollView());
-        //  recyclerView.smoothScrollToPosition(index);
-        gestureListener = new GestureListener(mActivity);
-        //   llRoot.setOnTouchListener(gestureListener);
-        initEvent();
+        //
+        findViewById(R.id.btn1).setOnClickListener(new OnSingleClickListener() {
+            @Override
+            protected void onSingleClick(View view) {
+                recyclerView.smoothScrollToPosition(index + 1);
+            }
+        });
     }
 
-    private void initEvent() {
-//        adapter.setOnItemClickListener(new OnItemClickListener() {
-//            @Override
-//            public void onItemClick(@NonNull BaseQuickAdapter adapter, @NonNull View view, int position) {
-//                if (view.getId() == R.id.mRadioGroup) {
-//                    RadioGroup radioGroup = (RadioGroup) view;
-//                    int checkedRadioButtonId = radioGroup.getCheckedRadioButtonId();
-//                    Log.e("=======>", "onItemClick: " + checkedRadioButtonId);
-//
-//                }
-//
-//            }
-//        });
-
-    }
 
     @Override
     protected int getContentLayout() {
@@ -110,7 +88,6 @@ public class AnswerQuestionActivity extends BaseActivity {
 
     public class OnScrollView extends RecyclerView.OnScrollListener {
 
-        // 用来标记是否正在向左滑动
         private boolean isSlidingToLeft = false;
 
         @Override
@@ -119,8 +96,14 @@ public class AnswerQuestionActivity extends BaseActivity {
             LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
             // 当不滑动时
             if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                Log.e("====>", "onScrolled: 停止滑动了");
+                if (recyclerView.getChildCount() > 0) {
+                    index = ((RecyclerView.LayoutParams) recyclerView.getChildAt(0).getLayoutParams()).getViewAdapterPosition() + 1;
+                    Log.e("====>", "onScrolled: 停止滑动了" + index);
+                    tvIndex.setText(index + "/5");
+                }
+
                 // 获取最后一个完全显示的itemPosition
-                assert manager != null;
                 int lastItemPosition = manager.findLastCompletelyVisibleItemPosition();
                 int itemCount = manager.getItemCount();
                 // 滑动到了最后一个
@@ -133,19 +116,17 @@ public class AnswerQuestionActivity extends BaseActivity {
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
-            // dx值大于0表示正在向左滑动，小于或等于0表示向右滑动或停止
             isSlidingToLeft = dx > 0;
-            if (isSlidingToLeft) {
-              //  layoutManager.setScrollEnabled(true);
+            if (dx > 0) {
                 Log.e("====>", "onScrolled: 向左啦");
+                //判断处理
+            } else if (dx < 0) {
+                Log.e("====>", "onScrolled: 向右啦");
+                layoutManager.setScrollEnabled(true);
             } else {
-                layoutManager.setScrollEnabled(false);
-              //  Log.e("====>", "onScrolled: 向右啦");
-
             }
-            //  layoutManager.setScrollEnabled(true);
-            //   recyclerView.setS
         }
+
     }
 
 
