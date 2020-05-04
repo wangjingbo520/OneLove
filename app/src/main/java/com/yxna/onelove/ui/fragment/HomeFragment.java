@@ -1,10 +1,12 @@
 package com.yxna.onelove.ui.fragment;
 
 import android.view.View;
+import android.widget.GridView;
 
 import com.yxna.onelove.R;
+import com.yxna.onelove.adapter.HomTopGridViewAdapter;
 import com.yxna.onelove.base.BaseFragment;
-import com.yxna.onelove.views.customviews.TitleView;
+import com.yxna.onelove.ui.activity.RealLoveActivity;
 
 import butterknife.BindView;
 
@@ -14,13 +16,9 @@ import butterknife.BindView;
  * describe
  */
 public class HomeFragment extends BaseFragment {
-
-    @BindView(R.id.titleView)
-    TitleView titleView;
-
-    public HomeFragment() {
-        // Required empty public constructor
-    }
+    @BindView(R.id.gridview)
+    GridView gridview;
+    private HomTopGridViewAdapter homTopGridViewAdapter;
 
 
     @Override
@@ -30,8 +28,18 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void initView(View root) {
-        titleView.setTitle("首页");
-        titleView.setBackImageGone(true);
+        homTopGridViewAdapter = new HomTopGridViewAdapter(mContext);
+        gridview.setAdapter(homTopGridViewAdapter);
+
+        gridview.setOnItemClickListener((adapterView, view, position, l) -> {
+            if (position == 0) {
+              //
+            } else if (position == 3) {
+                RealLoveActivity.start(mContext);
+            }
+
+        });
+
     }
 
     @Override

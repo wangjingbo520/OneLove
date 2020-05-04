@@ -4,15 +4,29 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.PagerSnapHelper;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.yxna.onelove.MainActivity;
 import com.yxna.onelove.R;
+import com.yxna.onelove.adapter.AnsQuestionAdapter;
+import com.yxna.onelove.adapter.CustomLinearLayoutManager;
 import com.yxna.onelove.base.BaseActivity;
+import com.yxna.onelove.views.customviews.GestureListener;
 import com.yxna.onelove.views.customviews.TitleView;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 import butterknife.BindView;
@@ -23,14 +37,25 @@ import butterknife.BindView;
  * describe 答題
  */
 public class AnswerQuestionActivity extends BaseActivity {
+    @BindView(R.id.titleView)
+    TitleView titleView;
+    @BindView(R.id.recyclerView)
+    RecyclerView recyclerView;
+    @BindView(R.id.llRoot)
+    LinearLayout llRoot;
+
+    private AnsQuestionAdapter adapter;
+
+    private int index = 0;
+    private CustomLinearLayoutManager layoutManager;
+
+    private GestureListener gestureListener;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, AnswerQuestionActivity.class);
         context.startActivity(starter);
     }
 
-    @BindView(R.id.titleView)
-    TitleView titleView;
 
     @Override
     protected void initData() {
@@ -41,6 +66,40 @@ public class AnswerQuestionActivity extends BaseActivity {
     @Override
     protected void initView(Bundle savedInstanceState) {
         titleView.setTitle("真爱识别器");
+        PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
+        pagerSnapHelper.attachToRecyclerView(recyclerView);
+        layoutManager = new CustomLinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerView.setLayoutManager(layoutManager);
+        List<String> list = new ArrayList<>();
+        list.add("==");
+        list.add("==");
+        list.add("==");
+        list.add("==");
+        list.add("==");
+        adapter = new AnsQuestionAdapter(R.layout.question_layout, list);
+        recyclerView.setAdapter(adapter);
+        recyclerView.addOnScrollListener(new OnScrollView());
+        //  recyclerView.smoothScrollToPosition(index);
+        gestureListener = new GestureListener(mActivity);
+        //   llRoot.setOnTouchListener(gestureListener);
+        initEvent();
+    }
+
+    private void initEvent() {
+//        adapter.setOnItemClickListener(new OnItemClickListener() {
+//            @Override
+//            public void onItemClick(@NonNull BaseQuickAdapter adapter, @NonNull View view, int position) {
+//                if (view.getId() == R.id.mRadioGroup) {
+//                    RadioGroup radioGroup = (RadioGroup) view;
+//                    int checkedRadioButtonId = radioGroup.getCheckedRadioButtonId();
+//                    Log.e("=======>", "onItemClick: " + checkedRadioButtonId);
+//
+//                }
+//
+//            }
+//        });
+
     }
 
     @Override
@@ -48,7 +107,49 @@ public class AnswerQuestionActivity extends BaseActivity {
         return R.layout.activity_answer_question;
     }
 
-    private void init(){
+
+    public class OnScrollView extends RecyclerView.OnScrollListener {
+
+        // 用来标记是否正在向左滑动
+        private boolean isSlidingToLeft = false;
+
+        @Override
+        public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+            super.onScrollStateChanged(recyclerView, newState);
+            LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
+            // 当不滑动时
+            if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                // 获取最后一个完全显示的itemPosition
+                assert manager != null;
+                int lastItemPosition = manager.findLastCompletelyVisibleItemPosition();
+                int itemCount = manager.getItemCount();
+                // 滑动到了最后一个
+                if (lastItemPosition == (itemCount - 1) && isSlidingToLeft) {
+
+                }
+            }
+        }
+
+        @Override
+        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            super.onScrolled(recyclerView, dx, dy);
+            // dx值大于0表示正在向左滑动，小于或等于0表示向右滑动或停止
+            isSlidingToLeft = dx > 0;
+            if (isSlidingToLeft) {
+              //  layoutManager.setScrollEnabled(true);
+                Log.e("====>", "onScrolled: 向左啦");
+            } else {
+                layoutManager.setScrollEnabled(false);
+              //  Log.e("====>", "onScrolled: 向右啦");
+
+            }
+            //  layoutManager.setScrollEnabled(true);
+            //   recyclerView.setS
+        }
+    }
+
+
+    private void init() {
         //上一题
 //        btn_up.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -199,4 +300,5 @@ public class AnswerQuestionActivity extends BaseActivity {
 //        }
 //        return wrongList;
 //    }
+
 }

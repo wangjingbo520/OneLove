@@ -75,6 +75,7 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["glide:compiler"]
     implementation rootProject.ext.dependencies["glide"]
     implementation rootProject.ext.dependencies["com.gyf.immersionbar"]
+    implementation rootProject.ext.dependencies["com.github.CymChad"]
     api rootProject.ext.dependencies["pictureSelector"]
 
     implementation rootProject.ext.smartrefresh["smartrefreshLayout"]

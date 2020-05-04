@@ -77,8 +77,7 @@ public class MyFragment extends BaseFragment {
                 TalkingSkillActivity.start(getActivity());
                 break;
             case R.id.llTest:
-                // TestActivity.start(getActivity());
-                AnswerQuestionActivity.start(mContext);
+                 TestActivity.start(getActivity());
                 break;
             case R.id.llAnswer:
                 AnswerActivity.start(getActivity());
