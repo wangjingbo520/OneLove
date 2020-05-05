@@ -16,6 +16,17 @@ public class MyLinearLayout extends LinearLayout {
     private boolean isCanHozLeftScroll = true;
     private boolean isCanHozRightScroll = true;
 
+    float x1 = 0;
+    float x2 = 0;
+
+
+    public void setCanHozLeftScroll(boolean canHozLeftScroll) {
+        isCanHozLeftScroll = canHozLeftScroll;
+    }
+
+    public void setCanHozRightScroll(boolean canHozRightScroll) {
+        isCanHozRightScroll = canHozRightScroll;
+    }
 
     public MyLinearLayout(Context context) {
         super(context);
@@ -34,10 +45,17 @@ public class MyLinearLayout extends LinearLayout {
     }
 
     @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
+    public boolean onInterceptTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            x1 = event.getX();
+        }
+        if (event.getAction() == MotionEvent.ACTION_MOVE) {
+            x2 = event.getX();
+            if (x1 - x2 > 0) {
+                return isCanHozLeftScroll;
+            }
+        }
 
-
-
-        return super.onInterceptTouchEvent(ev);
+        return super.onInterceptTouchEvent(event);
     }
 }
